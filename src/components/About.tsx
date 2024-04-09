@@ -1,10 +1,14 @@
 'use client'
 
-import { headerItems, userInfo } from "@/constants/constant";
+import { headerItems } from "@/constants/constant";
+import { SkillProp, UserObject } from "@/models/User";
 import Image from "next/image";
+import { userInfo } from "@/constants/constant";
+import { UserInfo } from "os";
 
 
-const About: React.FC = ():any => {
+
+const About: React.FC = (): any => {
     return (
         <section id={headerItems.about.page}
             className="h-screen flex flex-col text-center justify-center mx-7 items-center md:flex-row md:text-start">
@@ -25,9 +29,16 @@ const About: React.FC = ():any => {
                     width={300}
                     className="mb-12 ml-14 rounded-full shadow-2xl "
                 />
+
+            </div>
+            <div>
                 {
-                    userInfo.skills.map((skill:any) => (
-                        <span className={"bg-slate-900 bg-gradient-to-r from-bg-slate-900 to-blue-500 hover:from-emerald-900 hover:to-slate-800 m-1 p-2 rounded-md inline-block text-sm font-serif font-semibold text-gray-100 cursor-default mb-14 shadow-xl"}> {skill} </span>
+                  userInfo.skills.id.map((skills:string,index:number) => (
+                        <span
+                            key={index}
+                            className={"bg-slate-900 bg-gradient-to-r from-bg-slate-900 to-blue-500 hover:from-emerald-900 hover:to-slate-800 m-1 p-2 rounded-md inline-block text-sm font-serif font-semibold text-gray-100 cursor-default mb-14 shadow-xl"}>
+                            {skills}
+                        </span>
                     ))
                 }
             </div>

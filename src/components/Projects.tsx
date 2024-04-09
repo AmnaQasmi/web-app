@@ -13,6 +13,7 @@ const Projects: React.FunctionComponent = ():any => {
             {
                 Object.keys(projects).map ((project:any) => (
                     <Image
+                    key={project}
                     src={projects[project as keyof Projects].image}
                     alt="dp"
                     width={300}
